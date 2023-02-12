@@ -18,7 +18,27 @@ To implement this there are several resources required. This has been designed t
 4. Azure Batch account to execute the Autotune jobs on a VM instance
 5. [SendGrid](https://sendgrid.com/) account to send the Autotune results by email
 
-## VM image setup
+### Before start you should have account in Azure, that able to:
+1) Create VM 
+2) Create storage account
+3) Create batch account, that has the ability to increase limits
+4) Create simple app service for asp.net 
+
+
+## First step - create VM image setup with Autotune
+1) In Azure search bar type `vm` and select `virtual machine`  
+    ![Virtual machine](img/img_1.png)
+
+2) In open window select `create` and after `Azure virtual machine`
+   ![Virtual machine](img/img_2.png)  
+
+3) Then you need to fill in the fields with an asterisk, an example in the pictures below
+    - If you don't have any Resources group, it's need create one, click to `Create new`
+   ![Virtual machine](img/img.png)  
+   ![Virtual machine](img/img_3.png)
+
+4) Then click `Review + create` and after validate, click one more `create`
+
 
 In Azure, create a new Linux VM. Once the VM is provisioned, install Autotune using the standard installation instructions. In my case I followed the instructions
 to install the latest dev version.
@@ -26,6 +46,7 @@ to install the latest dev version.
 Once Autotune is installed on your VM, create an image of that VM. This image will be used later to dynamically create VMs as needed to process Autotune jobs. The
 [instructions for how to create an image from a VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image) can be found on the Azure
 documentation site.
+
 
 ## Azure Storage Accout setup
 
