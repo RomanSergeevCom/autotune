@@ -14,8 +14,6 @@
     <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 
-<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets"
-    Condition="'$(VSToolsPath)' != ''" />
-<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets"
-    Condition="true" />
+<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v.*.*\WebApplications\Microsoft.WebApplication.targets" />
+<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v*.*\WebApplications\Microsoft.WebApplication.targets"  />
 </Project>
