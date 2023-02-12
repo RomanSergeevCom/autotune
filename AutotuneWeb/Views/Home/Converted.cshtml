@@ -45,7 +45,7 @@
     </div>
 }
 
-<h1>Converted Profile</h1>
+<h1>Your Profile</h1>
 
 <p>
     Thank you, your Nightscout profile has been converted ready to use for Autotune.
@@ -123,7 +123,7 @@
         <td>@isf.ToString("0.#") @unitsString</td>
     </tr>
     <tr>
-        <th>CR</th>
+        <th>ICR</th>
         <td>@Model.CarbRatio.ToString("0.#") g/U</td>
     </tr>
     <tr>
@@ -149,25 +149,6 @@
     </tr>
 </table>
 
-<h2>Running Autotune Yourself</h2>
-
-<ol>
-    <li>
-        Copy &amp; paste your converted profile below into <code>profile.json</code>,
-        <code>pumpprofile.json</code> and <code>autotune.json</code>
-        <input type="button" class="btn btn-default btn-sm" value="Show" id="showprofilejson" />
-<pre id="profilejson" style="display: none">
-@profileJson
-</pre>
-    </li>
-    <li>
-        Run Autotune with
-        <code>oref0-autotune --dir=~/myopenaps --ns-host=@ViewBag.NSUrl --start-date=YYYY-MM-DD</code>
-    </li>
-</ol>
-
-<h2>Running Autotune in the Cloud</h2>
-
 <p>
     Complete the remaining fields below to run Autotune on this profile
 </p>
@@ -178,9 +159,9 @@
     @Html.Hidden("oapsProfile", profileJson)
     @Html.Hidden("units", (string)ViewBag.Units)
     @Html.Hidden("timezone", (string)ViewBag.TimeZone)
-    <p>
-        Ready to run Autotune now? Enter a few more details, then click Run Now to have us run Autotune for you.
-    </p>
+<p>
+    Running auto-selecting. Сheck and fill in the fields below
+</p>
 
     <div class="row">
         <div class="col-md-4">
@@ -193,9 +174,9 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-info">
-                The minimum amount of the expected carb impact that should be assumed when no carb absorption is identified from the CGM data,
-                forcing the remaining carbs on board to decay.
+            <div class="alert alert-success">
+                The minimum amount of the expected carb impact should be assumed when no carb absorption is identified
+                from the CGM data, forcing the remaining carbs on board to decay.
             </div>
         </div>
     </div>
@@ -210,9 +191,8 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-info">
-                Autotune will likely recommend basals in fractions of a unit that you can't program into your pump, so enter here what
-                increments your pump can handle (0.1, 0.5 etc.) to get your results rounded for you.
+            <div class="alert alert-success">
+                Enter here what increments your pump can handle (0.1, 0.5, etc.) to get your results rounded for you.
             </div>
         </div>
     </div>
@@ -226,9 +206,10 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-info">
-                If Autotune sees some sudden rises in your CGM data, it may conclude that there were carbs eaten but not entered into Nightscout.
-                If you have reliably entered all carbs eaten, tick this box and those rises will be used to recommend changes to the basal rate.
+            <div class="alert alert-success">
+                If the system sees sudden rises in your CGM data, it may conclude that carbs were eaten but
+                not entered into Nightscout. However, if you have reliably entered all carbs eaten, tick this box,
+                and those rises will be used to recommend changes to the basal rate.
             </div>
         </div>
     </div>
@@ -241,8 +222,8 @@
             </select>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-info">
-                Select the type of insulin you use so that Autotune can tell how quickly it acts and decays.
+            <div class="alert alert-success">
+                Select the type of insulin you use so the system can tell how quickly it acts and decays.
             </div>
         </div>
     </div>
@@ -255,8 +236,8 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-info">
-                The number of days of data to be processed by Autotune (up to 30)
+            <div class="alert alert-success">
+                The number of days of data to be processed by the system (up to 30).
             </div>
         </div>
     </div>
@@ -271,14 +252,14 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="alert alert-info">
-                Autotune takes a few minutes to run, so we'll email the results to you when they're ready. You should get them in 10 - 20 minutes,
-                check your spam folder if you don't get it.
+            <div class="alert alert-success">
+                The system takes a few minutes to run, so we'll email the results to you when they're ready.
+                You should get them in 10 - 20 minutes. Check your spam folder if you don't get it.
             </div>
         </div>
     </div>
     <p>
-        <input type="submit" class="btn btn-success" value="Run Now" />
+        <input type="submit" class="btn btn-success" value="Select" />
     </p>
 }
 

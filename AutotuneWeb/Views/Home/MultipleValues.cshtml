@@ -20,28 +20,24 @@
 @if (Model.CarbRatio.Length > 1 && Model.Sensitivity.Length > 1)
 {
     <p>
-        You have different carb ratios and insulin sensitivity factors in your profile
-        for different times of day, but autotune only supports one of each.
+        You have a different ICR in your profile, but we only support one now.
     </p>
 }
 else if (Model.CarbRatio.Length > 1)
 {
     <p>
-        You have different carb ratios in your profile for different times of day, but
-        autotune only supports one.
+        You have a different ICR in your profile, but we only support one now.
     </p>
 }
 else
 {
     <p>
-        You have different insulin sensitivity factors in your profile for different times
-        of day, but autotune only supports one.
+        You have a different ICR in your profile, but we only support one now.
     </p>
 }
 
 <p>
-    Use the options below to select the value you want autotune to use. You can choose
-    one of the values from your profile, or you can choose a different value.
+    You must choose one from your profile below or the average daily value.
 </p>
 
 @using (Html.BeginForm())
@@ -53,14 +49,14 @@ else
         var maxValue = Model.CarbRatio.Max(cr => cr.Value);
         var averageValue = Math.Round(Model.CarbRatio.Average(cr => cr.Value), 1);
 
-        <h2>Carb Ratio (g/U)</h2>
+        <h2>Insulin to carb ratio (ICR, g/U)</h2>
         <p>
             Select a value to use from one of the time blocks taken from your profile below, or use your average value across the day.
         </p>
         <p>
             <label>
                 <input type="radio" name="cr" value="@averageValue" checked />
-                Average (@averageValue.ToString("0.0") - dashed line in chart below)
+                Mean ICR: (@averageValue.ToString("0.0") - Marked with a dotted line below)
             </label>
         </p>
         <div class="timeline">
@@ -121,6 +117,6 @@ else
     }
 
     <p>
-        <input type="submit" class="btn btn-primary" value="Autotune" />
+        <input type="submit" class="btn btn-success" value="Select" />
     </p>
 }

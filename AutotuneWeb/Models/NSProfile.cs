@@ -54,6 +54,7 @@ namespace AutotuneWeb.Models
             // Try looking for a Profile Switch event first
             var profileSwitchUrl = new Uri(url, $"/api/v1/treatments.json?find[eventType][$eq]=Profile%20Switch&find[created_at][$lte]={DateTime.UtcNow:yyyy-MM-ddTHH:mmzzz}&count=1");
             var req = WebRequest.CreateHttp(profileSwitchUrl);
+            //req.Headers.Add("api-secret", "autotune-d20730953a3b8618");
             using (var resp = req.GetResponse())
             using (var stream = resp.GetResponseStream())
             using (var reader = new StreamReader(stream))

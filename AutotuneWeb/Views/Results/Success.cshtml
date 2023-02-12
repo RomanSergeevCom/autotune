@@ -46,10 +46,10 @@
 
 <html>
 <head>
-    <title>Autotune Results</title>
+    <title>Results</title>
 </head>
 <body style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 14px; color: rgb(51, 51, 51);">
-    <h1>Autotune Results</h1>
+    <h1>Autoselected result</h1>
 
     <h2><a href="@Model.Job.NSUrl">@Model.Job.NSUrl</a></h2>
     <p>Based on data entered between @(startDate.ToString("yyyy-MM-dd")) and @(endDate.ToString("yyyy-MM-dd"))</p>
@@ -64,8 +64,8 @@
     else
     {
         <p>
-            Sudden rises were counted as being triggered by carbs that were not recorded rather than incorrect basals.
-            If all carbs were recorded, re-run with the UAM as Basals option enabled.
+           Sudden rises were counted as being triggered by carbs that were not recorded rather than incorrect basals.
+           If all carbs were recorded, re-run with the UAM as Basals option enabled.
         </p>
     }
 
@@ -97,7 +97,7 @@
             <tr>
                 <th width='25%' style='border-top: solid 1px #ddd; padding: 8px'>Time</th>
                 <th width='25%' style='border-top: solid 1px #ddd; padding: 8px'>Original</th>
-                <th width='25%' style='border-top: solid 1px #ddd; padding: 8px'>Autotune Result</th>
+                <th width='25%' style='border-top: solid 1px #ddd; padding: 8px'>Autoselected result</th>
                 <th width='25%' style='border-top: solid 1px #ddd; padding: 8px'>Rounded&nbsp;to @Model.Job.PumpBasalIncrement</th>
             </tr>
         </thead>
@@ -129,13 +129,10 @@
         Autotune, but especially for these larger highlighted changes.
     </p>
     <p>
-        The green &amp; red blocks next to each basal suggestion indicate how many days the Autotune algorithm used
-        actual BG data to produce the suggestion (green) and how many days it averaged the surrounding hours due to
-        the data for that hour being dominated by other factors such as carb absorption. This is currently an experimental
-        new feature to try to give an indication of how much trust to place in each suggestion.
-    </p>
-    <p>
-        This job was run with Autotune version <a href="https://github.com/openaps/oref0/tree/@Model.Commit">@Model.Commit</a>
+        The green &amp; red blocks next to each basal suggestion indicate how many days the Autotune algorithm used actual
+        BG data to produce the suggestion (green) and how many days it averaged the surrounding hours due to the data for
+        that hour being dominated by other factors such as carb absorption. This is currently an experimental new feature
+        to try to give an indication of how much trust to place in each suggestion.
     </p>
 </body>
 </html>
