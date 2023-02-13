@@ -8,7 +8,6 @@
 @if (ViewBag.PreviousResults)
 {
     <div class="alert alert-info">
-        <p>Looking for your previous results?</p>
         <p>
             <a href="/Results/Index?nsUrl=@ViewBag.NSUrl" class="btn btn-success">View Results</a>
         </p>
@@ -49,9 +48,8 @@ else
         var maxValue = Model.CarbRatio.Max(cr => cr.Value);
         var averageValue = Math.Round(Model.CarbRatio.Average(cr => cr.Value), 1);
 
-        <h2>Insulin to carb ratio (ICR, g/U)</h2>
         <p>
-            Select a value to use from one of the time blocks taken from your profile below, or use your average value across the day.
+            Please check that the details below are correct.
         </p>
         <p>
             <label>
